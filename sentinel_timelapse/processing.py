@@ -7,22 +7,30 @@ import os
 import geopandas as gpd
 from shapely.geometry import box
 
-def clipped_asset(item, xmin, ymin, xmax, ymax, input_crs='EPSG:24879', bounds_crs='EPSG:32719', 
-                 asset_name='visual', prefix='clipped', return_data_dic=False, 
-                 save_tiff=False, out_path=None):
+"""
+Image processing utilities for Sentinel-2 data.
+
+This module handles the processing of Sentinel-2 imagery including:
+- Asset downloading
+- Cloud masking
+- Spatial clipping
+- File saving
+"""
+
+def clipped_asset(item, asset_name: str, bounds: tuple) -> None:
     """
-    Clip a Sentinel asset to specified bounds.
-    
+    Download and clip a Sentinel-2 asset to specified bounds.
+
     Args:
-        item: STAC item
-        xmin, ymin, xmax, ymax: Bounds in input_crs coordinates
-        input_crs: CRS of input bounds (default: EPSG:24879)
-        bounds_crs: Target CRS for clipping (default: EPSG:32719)
-        asset_name: Name of asset to clip (default: 'visual')
-        prefix: Prefix for output filename
-        return_data_dic: Whether to return data dictionary
-        save_tiff: Whether to save as GeoTIFF
-        out_path: Output directory path
+        item: STAC item containing the asset
+        asset_name (str): Name of asset to process (e.g., 'visual', 'B04')
+        bounds (tuple): Bounding box for clipping (minx, miny, maxx, maxy)
+
+    Returns:
+        None: Processed image is saved to disk
+
+    Raises:
+        ValueError: If asset is not found in item
     """
     # Convert bounds from input CRS to clipping CRS
     if input_crs != bounds_crs:

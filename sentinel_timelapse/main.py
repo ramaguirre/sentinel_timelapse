@@ -8,32 +8,44 @@ from .geometry import bounds_to_geom_wgs84
 from .stac import search_stac_items, filter_items_by_geometry
 from .processing import clipped_asset
 
+"""
+Main module for downloading and processing Sentinel-2 imagery.
+
+This module provides the main interface for downloading Sentinel-2 images
+from Microsoft's Planetary Computer using the STAC API.
+"""
+
 def download_images(
     bounds: tuple,
-    assets: Union[str, List[str]],
+    assets: list,
     prefix: str,
-    input_crs: Union[int, str] = 24879,
-    start_date: str = "2014-08-01",
-    end_date: str = None,
-    max_cloud_pct: int = 5
+    input_crs: int,
+    start_date: str,
+    end_date: str,
+    max_cloud_pct: float = 20
 ) -> dict:
     """
-    Process Sentinel images for given bounds and assets.
-    
+    Download and process Sentinel-2 images for a given area and time period.
+
     Args:
-        bounds: Tuple of (xmin, ymin, xmax, ymax)
-        assets: Asset name or list of asset names (e.g., 'visual', 'SCL')
-        prefix: Output directory prefix
-        input_crs: CRS of input bounds (default: 24879)
-        start_date: Start date in YYYY-MM-DD format
-        end_date: End date in YYYY-MM-DD format (default: today)
-        max_cloud_pct: Maximum cloud coverage percentage (default: 5)
-    
+        bounds (tuple): Area of interest as (minx, miny, maxx, maxy)
+        assets (list): List of Sentinel-2 assets to download (e.g., ['visual', 'B04'])
+        prefix (str): Output directory prefix for saved files
+        input_crs (int): EPSG code of input coordinates
+        start_date (str): Start date in YYYY-MM-DD format
+        end_date (str): End date in YYYY-MM-DD format
+        max_cloud_pct (float, optional): Maximum cloud coverage percentage. Defaults to 20.
+
     Returns:
         dict: Processing statistics including:
-            - total_images: number of images processed
-            - cloud_filtered: number of images filtered by cloud coverage
-            - asset_counts: dictionary with count of images per asset
+            - total_images: Number of images found
+            - cloud_filtered: Number of images filtered due to clouds
+            - asset_counts: Number of images processed per asset
+
+    Example:
+        >>> bounds = (407500.0, 7494500.0, 415200.0, 7505700.0)
+        >>> stats = download_images(bounds, ['visual'], 'output', 24879,
+                                  '2023-12-01', '2023-12-31')
     """
     stats = {
         'total_images': 0,
