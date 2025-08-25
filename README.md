@@ -38,12 +38,52 @@ print(f"Images filtered due to clouds: {stats['cloud_filtered']}")
 print(f"Images processed per asset: {stats['asset_counts']}")
 ```
 
+## Available Assets
+
+### Common Assets
+- `visual`: True color composite (RGB) - 10m
+- `B02`: Blue band (490nm) - 10m
+- `B03`: Green band (560nm) - 10m
+- `B04`: Red band (665nm) - 10m
+- `B08`: NIR band (842nm) - 10m
+
+### Specialized Assets
+- `SCL`: Scene Classification Layer - 20m
+  - 0: NO_DATA
+  - 1: SATURATED_OR_DEFECTIVE
+  - 2: DARK_AREA_PIXELS
+  - 3: CLOUD_SHADOWS
+  - 4: VEGETATION
+  - 5: NOT_VEGETATED
+  - 6: WATER
+  - 7: UNCLASSIFIED
+  - 8: CLOUD_MEDIUM_PROBABILITY
+  - 9: CLOUD_HIGH_PROBABILITY
+  - 10: THIN_CIRRUS
+  - 11: SNOW
+- `TCI`: True Color Image (RGB visualization) - 10m
+- `AOT`: Aerosol Optical Thickness - 10m
+- `WVP`: Water Vapor - 10m
+
+### Additional Bands
+- `B01`: Coastal aerosol (443nm) - 60m
+- `B05`: Vegetation Red Edge 1 (705nm) - 20m
+- `B06`: Vegetation Red Edge 2 (740nm) - 20m
+- `B07`: Vegetation Red Edge 3 (783nm) - 20m
+- `B09`: Water vapor (945nm) - 60m
+- `B11`: SWIR 1 (1614nm) - 20m
+- `B12`: SWIR 2 (2202nm) - 20m
+
+### Resolution
+- 10m: B02, B03, B04, B08
+- 20m: B05, B06, B07, B11, B12
+
 ## Data Sources and Licensing
 
 ### Sentinel-2 Imagery
 This package uses Sentinel-2 satellite imagery accessed through Microsoft's Planetary Computer. The imagery is provided by the European Space Agency (ESA) under the following terms:
 
-- Copernicus Sentinel data [year] is licensed under CC BY 4.0
+- Copernicus Sentinel data 2015-present is licensed under CC BY 4.0
 - Source: European Space Agency (ESA)
 - More information: [Copernicus Open Access Hub](https://scihub.copernicus.eu/)
 
