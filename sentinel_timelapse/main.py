@@ -8,7 +8,7 @@ from .geometry import bounds_to_geom_wgs84
 from .stac import search_stac_items, filter_items_by_geometry
 from .processing import clipped_asset
 
-def process_sentinel_images(
+def download_images(
     bounds: tuple,
     assets: Union[str, List[str]],
     prefix: str,
@@ -99,3 +99,4 @@ def process_sentinel_images(
             stats['asset_counts'][asset] += 1
     
     return stats
+

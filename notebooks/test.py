@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-from sentinel_timelapse.main import process_sentinel_images
+from sentinel_timelapse import download_images
 
 # Test parameters
 bounds = (407500.0, 7494500.0, 415200.0, 7505700.0)  # Antucoya mine area
@@ -15,7 +15,7 @@ start_date = '2023-12-01'
 end_date = '2023-12-31'
 
 # Process images and get statistics
-stats = process_sentinel_images(
+stats = download_images(
     bounds=bounds,
     assets=assets,
     prefix=prefix,

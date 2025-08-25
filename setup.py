@@ -9,13 +9,20 @@ setup(
         "pystac-client",
         "rasterio",
         "geopandas",
-        "shapely",
-        "tqdm"
+        "pyproj",
+        "numpy",
+        "pandas"
     ],
     author="Your Name",
     author_email="your.email@example.com",
-    description="A tool for processing Sentinel-2 time series",
+    description="Download and process Sentinel-2 imagery from Planetary Computer",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    python_requires=">=3.7",
+    url="https://github.com/yourusername/sentinel_timelapse",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires=">=3.8",
 )
