@@ -1,0 +1,10 @@
+numpy
+opencv-python
+Pillow
+pytest
+planetary-computer
+pystac-client
+rasterio
+geopandas
+shapely
+tqdm
