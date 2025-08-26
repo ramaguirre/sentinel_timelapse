@@ -2,16 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name="sentinel_timelapse",
-    version="0.1.0",
+    version="0.1.3",
     packages=find_packages(),
     install_requires=[
         "planetary-computer",
         "pystac-client",
         "rasterio",
         "geopandas",
-        "numpy<2",
+        "numpy",
         "pyproj",
-        "pybind11>=2.12",
         "pandas"
     ],
     author="Your Name",

@@ -27,7 +27,7 @@ def clipped_asset(item, xmin, ymin, xmax, ymax, input_crs='EPSG:24879', bounds_c
     # Convert bounds from input CRS to clipping CRS
     if input_crs != bounds_crs:
         geom = box(xmin, ymin, xmax, ymax)
-        gdf = gpd.GeoDataFrame(geometry=[geom], crs=input_crs)
+        gdf = gpd.GeoDataFrame({'geometry':[geom]}, crs=input_crs)
         gdf_transformed = gdf.to_crs(bounds_crs)
         bounds_geom = gdf_transformed.geometry.iloc[0]
         xmin, ymin, xmax, ymax = bounds_geom.bounds
