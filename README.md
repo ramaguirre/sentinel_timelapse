@@ -1,11 +1,12 @@
 # Sentinel Timelapse Generator
 
-Create timelapses from Sentinel-2 imagery using Microsoft's Planetary Computer.
+Automatic time series donwload of Sentinel-2 imagery using Microsoft's Planetary Computer.
 
 ## Features
 - Access Sentinel-2 imagery via STAC API
-- Process and combine images into timelapses
-- Filter by cloud coverage and date range
+- Filter by cloud coverage, date range and area of interest (AOI)
+- Donwload available images clipped to AOI
+- Multiple bands/assets
 
 ## Installation
 
