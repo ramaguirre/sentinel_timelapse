@@ -11,7 +11,7 @@ Automatic time series donwload of Sentinel-2 imagery using Microsoft's Planetary
 ## Installation
 
 ```bash
-pip install sentinel_timelapse
+pip install git+https://github.com/ramaguirre/sentinel_timelapse.git 
 ```
 
 ## Usage
