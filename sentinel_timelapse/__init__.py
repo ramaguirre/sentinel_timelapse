@@ -1,7 +1,7 @@
 from ._bootstrap_geo import use_rasterio_bundled_data
 
 # run it before importing anything geospatial
-use_rasterio_bundled_data(verbose=True)
+use_rasterio_bundled_data(verbose=False)
 
 
 

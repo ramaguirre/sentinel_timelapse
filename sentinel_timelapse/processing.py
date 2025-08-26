@@ -80,6 +80,7 @@ def clipped_asset(item, xmin, ymin, xmax, ymax, input_crs='EPSG:24879', bounds_c
                         source='Sentinel-2',
                         href=item.assets[asset_name].href
                     )
+                print(out_file, 'saved.')
     except rasterio.errors.RasterioIOError as e:
         print(f"Rasterio error: {e}")
     except ValueError as e:
