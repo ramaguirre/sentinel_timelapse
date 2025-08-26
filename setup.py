@@ -9,8 +9,9 @@ setup(
         "pystac-client",
         "rasterio",
         "geopandas",
+        "numpy<2",
         "pyproj",
-        "numpy",
+        "pybind11>=2.12",
         "pandas"
     ],
     author="Your Name",
