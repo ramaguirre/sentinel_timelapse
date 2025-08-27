@@ -9,8 +9,7 @@ command line without writing Python code.
 
 import argparse
 import sys
-from datetime import datetime
-from typing import List, Union
+from typing import List
 
 from .main import download_images
 
@@ -66,14 +65,14 @@ def parse_assets(assets_str: List[str]) -> List[str]:
     return assets_str
 
 
-def main():
+def main() -> None:
     """
     Main command-line interface function.
-    
+
     This function sets up the argument parser, processes command line arguments,
     and orchestrates the Sentinel-2 image download process. It provides a
     user-friendly interface for the sentinel-timelapse functionality.
-    
+
     The function handles:
     - Command line argument parsing and validation
     - Coordinate system and bounds processing
@@ -81,13 +80,13 @@ def main():
     - Date range processing
     - Cloud coverage filtering configuration
     - Error handling and user feedback
-    
+
     Returns:
         None
-    
+
     Raises:
         SystemExit: On argument parsing errors, user cancellation, or processing errors
-    
+
     Example:
         $ sentinel-timelapse --bounds 407500 7494500 415200 7505700 \\
         >                      --assets visual B04 \\
@@ -210,7 +209,7 @@ Examples:
         )
 
         # Display processing results and statistics
-        print(f"\nProcessing complete!")
+        print("\nProcessing complete!")
         print(f"Total images found: {stats['total_images']}")
         print(f"Images filtered due to clouds: {stats['cloud_filtered']}")
         print(f"Images processed per asset: {stats['asset_counts']}")

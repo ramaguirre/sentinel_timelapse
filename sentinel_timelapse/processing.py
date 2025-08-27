@@ -14,12 +14,13 @@ from rasterio.coords import BoundingBox
 import os
 import geopandas as gpd
 from shapely.geometry import box
+from typing import Union, Dict, Any, Optional
 
 # Flag to track if geospatial environment has been initialized
 _geo_initialized = False
 
 
-def _ensure_geo_initialized():
+def _ensure_geo_initialized() -> None:
     """Ensure the geospatial environment is properly initialized."""
     global _geo_initialized
     if not _geo_initialized:
@@ -34,19 +35,19 @@ def _ensure_geo_initialized():
 
 
 def clipped_asset(
-    item,
-    xmin,
-    ymin,
-    xmax,
-    ymax,
-    input_crs="EPSG:24879",
-    bounds_crs="EPSG:32719",
-    asset_name="visual",
-    prefix="clipped",
-    return_data_dic=False,
-    save_tiff=False,
-    out_path=None,
-):
+    item: Any,
+    xmin: float,
+    ymin: float,
+    xmax: float,
+    ymax: float,
+    input_crs: str = "EPSG:24879",
+    bounds_crs: str = "EPSG:32719",
+    asset_name: str = "visual",
+    prefix: str = "clipped",
+    return_data_dic: bool = False,
+    save_tiff: bool = False,
+    out_path: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
     """
     Clip a Sentinel-2 asset to specified geographic bounds.
 
@@ -235,3 +236,5 @@ def clipped_asset(
     except Exception as e:
         # Handle any other unexpected errors
         print(f"Unexpected error: {e}")
+
+    return None

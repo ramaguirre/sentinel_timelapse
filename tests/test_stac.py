@@ -1,5 +1,12 @@
+"""
+Unit tests for the STAC module.
+
+This module contains comprehensive unit tests for the STAC (SpatioTemporal Asset Catalog)
+utilities, including tests for searching STAC items and filtering by geometry.
+"""
+
 import unittest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import patch, Mock
 from shapely.geometry import box, mapping
 
 from sentinel_timelapse.stac import search_stac_items, filter_items_by_geometry
@@ -10,141 +17,118 @@ class TestSTAC(unittest.TestCase):
 
     def setUp(self):
         """Set up test fixtures."""
-        # Test bounding box in WGS84
-        self.test_bbox = mapping(box(-70.5, -24.5, -70.4, -24.4))
-        self.test_datetime = "2023-01-01/2023-01-31"
+        # Create a mock bounding box for testing
+        self.bbox = mapping(box(0, 0, 1, 1))
+        self.datetime_range = "2023-01-01/2023-01-31"
 
-        # Mock STAC item
-        self.mock_item = Mock()
-        self.mock_item.geometry = mapping(box(-70.5, -24.5, -70.4, -24.4))
-        self.mock_item.id = "test_item_1"
-
-        # Mock STAC item outside bounds
-        self.mock_item_outside = Mock()
-        self.mock_item_outside.geometry = mapping(box(-71.0, -25.0, -70.9, -24.9))
-        self.mock_item_outside.id = "test_item_2"
-
-    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
+    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
     def test_search_stac_items_success(self, mock_client_open):
         """Test successful STAC item search."""
-        # Mock the catalog and search
+        # Mock the STAC client and search results
         mock_catalog = Mock()
         mock_search = Mock()
-        mock_search.items.return_value = [self.mock_item]
-
+        mock_items = [Mock(), Mock(), Mock()]
+        mock_search.items.return_value = mock_items
         mock_catalog.search.return_value = mock_search
         mock_client_open.return_value = mock_catalog
 
-        # Test the function
-        result = search_stac_items(self.test_bbox, self.test_datetime)
+        # Execute the function
+        result = search_stac_items(self.bbox, self.datetime_range)
 
-        # Verify the result
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0].id, "test_item_1")
-
-        # Verify the search was called with correct parameters
+        # Verify the results
+        self.assertEqual(len(result), 3)
         mock_catalog.search.assert_called_once_with(
             collections=["sentinel-2-l2a"],
-            intersects=self.test_bbox,
-            datetime=self.test_datetime,
+            intersects=self.bbox,
+            datetime=self.datetime_range
         )
 
-    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
+    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
     def test_search_stac_items_custom_collection(self, mock_client_open):
-        """Test STAC item search with custom collection."""
-        # Mock the catalog and search
-        mock_catalog = Mock()
-        mock_search = Mock()
-        mock_search.items.return_value = [self.mock_item]
-
-        mock_catalog.search.return_value = mock_search
-        mock_client_open.return_value = mock_catalog
-
-        # Test with custom collection
-        result = search_stac_items(
-            self.test_bbox, self.test_datetime, collection="sentinel-2-l1c"
-        )
-
-        # Verify the search was called with custom collection
-        mock_catalog.search.assert_called_once_with(
-            collections=["sentinel-2-l1c"],
-            intersects=self.test_bbox,
-            datetime=self.test_datetime,
-        )
-
-    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
-    def test_search_stac_items_empty_result(self, mock_client_open):
-        """Test STAC item search with empty result."""
-        # Mock the catalog and search
+        """Test STAC search with custom collection."""
+        # Mock the STAC client and search results
         mock_catalog = Mock()
         mock_search = Mock()
         mock_search.items.return_value = []
-
         mock_catalog.search.return_value = mock_search
         mock_client_open.return_value = mock_catalog
 
-        # Test the function
-        result = search_stac_items(self.test_bbox, self.test_datetime)
+        # Execute the function with custom collection
+        search_stac_items(self.bbox, self.datetime_range, collection="sentinel-2-l1c")
 
-        # Verify the result is empty
-        self.assertEqual(len(result), 0)
+        # Verify the collection parameter was used
+        mock_catalog.search.assert_called_once_with(
+            collections=["sentinel-2-l1c"],
+            intersects=self.bbox,
+            datetime=self.datetime_range
+        )
 
-    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
+    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
     def test_search_stac_items_connection_error(self, mock_client_open):
-        """Test STAC item search with connection error."""
+        """Test STAC search with connection error."""
         # Mock connection error
         mock_client_open.side_effect = Exception("Connection failed")
 
-        # Test the function should raise an exception
+        # Execute and verify exception is raised
         with self.assertRaises(Exception):
-            search_stac_items(self.test_bbox, self.test_datetime)
+            search_stac_items(self.bbox, self.datetime_range)
 
     def test_filter_items_by_geometry_success(self):
-        """Test filtering items by geometry."""
-        items = [self.mock_item, self.mock_item_outside]
-        bbox_geom = box(-70.5, -24.5, -70.4, -24.4)
+        """Test successful geometry filtering."""
+        # Create mock items with geometries that contain our bbox
+        # The bbox is (0,0,1,1), so we need geometries that fully contain this area
+        item1 = Mock()
+        item1.geometry = mapping(box(-1, -1, 2, 2))  # Large polygon containing our bbox
+        item2 = Mock()
+        item2.geometry = mapping(box(-0.5, -0.5, 1.5, 1.5))  # Polygon that contains our bbox
+        item3 = Mock()
+        item3.geometry = mapping(box(2, 2, 3, 3))  # Does not contain our bbox
 
-        # Test the function
-        result = filter_items_by_geometry(items, bbox_geom)
+        items = [item1, item2, item3]
 
-        # Verify only the item within bounds is returned
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0].id, "test_item_1")
+        # Execute the function
+        filtered_items = filter_items_by_geometry(items, self.bbox)
 
-    def test_filter_items_by_geometry_empty_input(self):
-        """Test filtering items with empty input."""
-        items = []
-        bbox_geom = box(-70.5, -24.5, -70.4, -24.4)
+        # Verify only items containing the bbox are returned
+        self.assertEqual(len(filtered_items), 2)
+        self.assertIn(item1, filtered_items)
+        self.assertIn(item2, filtered_items)
+        self.assertNotIn(item3, filtered_items)
 
-        # Test the function
-        result = filter_items_by_geometry(items, bbox_geom)
+    def test_filter_items_by_geometry_empty_list(self):
+        """Test geometry filtering with empty item list."""
+        # Execute with empty list
+        result = filter_items_by_geometry([], self.bbox)
 
-        # Verify empty result
-        self.assertEqual(len(result), 0)
+        # Verify empty list is returned
+        self.assertEqual(result, [])
 
-    def test_filter_items_by_geometry_no_matches(self):
-        """Test filtering items with no matches."""
-        items = [self.mock_item_outside]  # Item outside bounds
-        bbox_geom = box(-70.5, -24.5, -70.4, -24.4)
+    def test_filter_items_by_geometry_no_intersection(self):
+        """Test geometry filtering when no items intersect."""
+        # Create mock items that don't contain our bbox
+        item1 = Mock()
+        item1.geometry = mapping(box(2, 2, 3, 3))
+        item2 = Mock()
+        item2.geometry = mapping(box(3, 3, 4, 4))
 
-        # Test the function
-        result = filter_items_by_geometry(items, bbox_geom)
+        items = [item1, item2]
 
-        # Verify no matches
-        self.assertEqual(len(result), 0)
+        # Execute the function
+        filtered_items = filter_items_by_geometry(items, self.bbox)
+
+        # Verify no items are returned
+        self.assertEqual(filtered_items, [])
 
     def test_filter_items_by_geometry_invalid_geometry(self):
-        """Test filtering items with invalid geometry."""
-        items = [self.mock_item]
+        """Test geometry filtering with invalid geometry."""
+        # Create mock item with invalid geometry
+        item = Mock()
+        item.geometry = {"type": "Invalid", "coordinates": []}
 
-        # Create invalid geometry
-        invalid_geom = Mock()
-        invalid_geom.contains.side_effect = Exception("Invalid geometry")
-
-        # Test the function should handle the error gracefully
+        # Execute and verify exception is raised
         with self.assertRaises(Exception):
-            filter_items_by_geometry(items, invalid_geom)
+            filter_items_by_geometry([item], self.bbox)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

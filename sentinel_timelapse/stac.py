@@ -8,9 +8,12 @@ of available satellite images based on spatial and temporal criteria.
 
 import pystac_client
 from shapely.geometry import shape
+from typing import Union, Dict, Any
 
 
-def search_stac_items(bbox, datetime, collection="sentinel-2-l2a"):
+def search_stac_items(
+    bbox: Union[Dict[str, Any], Any], datetime: str, collection: str = "sentinel-2-l2a"
+) -> list:
     """
     Search for Sentinel-2 imagery items using the Planetary Computer STAC API.
 
@@ -68,7 +71,9 @@ def search_stac_items(bbox, datetime, collection="sentinel-2-l2a"):
     return list(search.items())
 
 
-def filter_items_by_geometry(items, bbox_geom):
+def filter_items_by_geometry(
+    items: list, bbox_geom: Union[Dict[str, Any], Any]
+) -> list:
     """
     Filter STAC items based on geometric intersection with a bounding box.
 

@@ -15,7 +15,7 @@ Key Features:
 
 Example Usage:
     >>> from sentinel_timelapse import download_images
-    >>> 
+    >>>
     >>> # Download visual and red band imagery for a mining area
     >>> stats = download_images(
     ...     bounds=(407500.0, 7494500.0, 415200.0, 7505700.0),
@@ -33,9 +33,6 @@ For more information, visit: https://github.com/yourusername/sentinel-timelapse
 # Import the main functionality modules
 # Note: The geospatial environment bootstrap is handled automatically
 # when needed by the individual modules to avoid circular import issues
-from .geometry import bounds_to_geom_wgs84
-from .stac import search_stac_items, filter_items_by_geometry
-from .processing import clipped_asset
 from .main import download_images
 
 # Define the public API for the package

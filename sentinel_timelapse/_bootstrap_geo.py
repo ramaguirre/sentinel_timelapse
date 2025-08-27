@@ -10,7 +10,7 @@ and raster processing operations.
 # sentinel_timelapse/_bootstrap_geo.py
 
 
-def use_rasterio_bundled_data(verbose=True):
+def use_rasterio_bundled_data(verbose: bool = True) -> None:
     """
     Configure rasterio to use its bundled GDAL and PROJ data.
 
@@ -48,7 +48,9 @@ def use_rasterio_bundled_data(verbose=True):
         [geo] GDAL_DATA -> /path/to/rasterio/gdal_data
         [geo] PROJ_LIB -> /path/to/rasterio/proj_data
     """
-    import os, pathlib, atexit
+    import os
+    import pathlib
+    import atexit
     import rasterio
 
     # Clear any existing environment variables that might conflict

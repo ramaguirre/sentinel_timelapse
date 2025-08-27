@@ -8,9 +8,7 @@ entire workflow from STAC search to final image clipping and saving.
 
 from datetime import datetime
 import os
-from typing import Union, List
-import geopandas as gpd
-from shapely.geometry import box
+from typing import Union, List, Dict, Any, Optional
 
 from .geometry import bounds_to_geom_wgs84
 from .stac import search_stac_items, filter_items_by_geometry
@@ -20,7 +18,7 @@ from .processing import clipped_asset
 _geo_initialized = False
 
 
-def _ensure_geo_initialized():
+def _ensure_geo_initialized() -> None:
     """Ensure the geospatial environment is properly initialized."""
     global _geo_initialized
     if not _geo_initialized:
@@ -40,9 +38,9 @@ def download_images(
     prefix: str,
     input_crs: Union[int, str] = 24879,
     start_date: str = "2014-08-01",
-    end_date: str = None,
+    end_date: Optional[str] = None,
     max_cloud_pct: int = 5,
-) -> dict:
+) -> Dict[str, Any]:
     """
     Download and process Sentinel-2 images for timelapse creation.
 
@@ -97,7 +95,7 @@ def download_images(
     _ensure_geo_initialized()
 
     # Initialize statistics dictionary to track processing results
-    stats = {"total_images": 0, "cloud_filtered": 0, "asset_counts": {}}
+    stats: Dict[str, Any] = {"total_images": 0, "cloud_filtered": 0, "asset_counts": {}}
 
     # Validate and prepare input parameters
     if isinstance(assets, str):
@@ -136,6 +134,11 @@ def download_images(
         if not os.path.exists(asset_path):
             os.makedirs(asset_path)
 
+    # Convert input_crs to string for clipped_asset function
+    bounds_crs_str = (
+        f"EPSG:{input_crs}" if isinstance(input_crs, int) else str(input_crs)
+    )
+
     # Process each image item found in the search
     for item in filtered_items:
         # Check cloud coverage if cloud filtering is enabled
@@ -147,13 +150,17 @@ def download_images(
                 ymin,
                 xmax,
                 ymax,
-                bounds_crs=input_crs,
+                bounds_crs=bounds_crs_str,
                 asset_name="SCL",
                 return_data_dic=True,
             )
 
             # Calculate cloud coverage percentage if SCL data is available
-            if scl_data is not None:
+            if (
+                scl_data is not None
+                and isinstance(scl_data, dict)
+                and "data" in scl_data
+            ):
                 # SCL values >= 8 represent cloud pixels (medium/high probability)
                 # Calculate percentage of cloud pixels relative to valid pixels
                 cloud_pct = (
@@ -176,7 +183,7 @@ def download_images(
                 ymin,
                 xmax,
                 ymax,
-                bounds_crs=input_crs,
+                bounds_crs=bounds_crs_str,
                 asset_name=asset,
                 prefix=prefix,
                 save_tiff=True,
