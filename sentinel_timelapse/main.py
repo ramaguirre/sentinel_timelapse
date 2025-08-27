@@ -68,9 +68,11 @@ def download_images(
     for asset in assets:
         stats['asset_counts'][asset] = 0
         # Create asset-specific subfolder
-
+        asset_path = os.path.join(prefix, asset)
+        if not os.path.exists(asset_path):
+            os.makedirs(asset_path)
         
-        # Process items for current asset
+    # Process items for current asset
     for item in filtered_items:
         # Check cloud coverage if SCL asset is available
         if max_cloud_pct is not None:
@@ -80,14 +82,14 @@ def download_images(
                 asset_name='SCL',
                 return_data_dic=True
             )
-            cloud_pct = 100 * (scl_data['data'][0] >= 8).sum() / (scl_data['data'][0] >= 0).sum()
-            if cloud_pct > max_cloud_pct:
-                stats['cloud_filtered'] += 1
-                continue
+            if scl_data is not None:
+                cloud_pct = 100 * (scl_data['data'][0] >= 8).sum() / (scl_data['data'][0] >= 0).sum()
+                if cloud_pct > max_cloud_pct:
+                    stats['cloud_filtered'] += 1
+                    continue
+        
+        # Process each asset for this item
         for asset in assets:
-            asset_path = os.path.join(prefix, asset)
-            if not os.path.exists(asset_path):
-                os.makedirs(asset_path)
             # Process and save current asset
             clipped_asset(
                 item, xmin, ymin, xmax, ymax,
@@ -95,9 +97,9 @@ def download_images(
                 asset_name=asset,
                 prefix=prefix,
                 save_tiff=True,
-                out_path=asset_path
+                out_path=os.path.join(prefix, asset)
             )
-        stats['asset_counts'][asset] += 1
+            stats['asset_counts'][asset] += 1
     
     return stats
 

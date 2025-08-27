@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sentinel_timelapse",
-    version="0.1.5",
+    version="0.1.6",
     packages=find_packages(),
     install_requires=[
         "planetary-computer",
@@ -13,8 +13,8 @@ setup(
         "pyproj",
         "pandas"
     ],
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Ramón Aguirre M.",
+    author_email="ramaguirre@hotmail.com",
     description="Download and process Sentinel-2 imagery from Planetary Computer",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
