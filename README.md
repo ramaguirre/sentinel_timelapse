@@ -73,7 +73,7 @@ sentinel-timelapse --bounds 407500.0 7494500.0 415200.0 7505700.0 \
                    --max-cloud-pct 5
 ```
 
-## Available Assets
+## Available Sentinel-2 Level-2A Assets
 
 ### Common Assets
 - `visual`: True color composite (RGB) - 10m
