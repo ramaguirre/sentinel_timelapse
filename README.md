@@ -1,20 +1,40 @@
 # Sentinel Timelapse Generator
 
-Automatic time series donwload of Sentinel-2 imagery using Microsoft's Planetary Computer.
+[![PyPI version](https://badge.fury.io/py/sentinel-timelapse.svg)](https://badge.fury.io/py/sentinel-timelapse)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/yourusername/sentinel-timelapse/workflows/Tests/badge.svg)](https://github.com/yourusername/sentinel-timelapse/actions)
+
+Automatic time series download of Sentinel-2 imagery using Microsoft's Planetary Computer.
 
 ## Features
 - Access Sentinel-2 imagery via STAC API
 - Filter by cloud coverage, date range and area of interest (AOI)
-- Donwload available images clipped to AOI
+- Download available images clipped to AOI
 - Multiple bands/assets
+- Cloud coverage filtering
+- Support for different coordinate reference systems (CRS)
 
 ## Installation
 
+### From PyPI (Recommended)
+```bash
+pip install sentinel-timelapse
+```
+
+### From GitHub
 ```bash
 pip install git+https://github.com/ramaguirre/sentinel_timelapse.git 
 ```
 
-## Usage
+### Development Installation
+```bash
+git clone https://github.com/ramaguirre/sentinel_timelapse.git
+cd sentinel_timelapse
+pip install -e .
+```
+
+## Quick Start
 
 ```python
 from sentinel_timelapse import download_images
@@ -37,6 +57,20 @@ stats = download_images(
 print(f"Total images found: {stats['total_images']}")
 print(f"Images filtered due to clouds: {stats['cloud_filtered']}")
 print(f"Images processed per asset: {stats['asset_counts']}")
+```
+
+## Command Line Usage
+
+You can also use the package from the command line:
+
+```bash
+sentinel-timelapse --bounds 407500.0 7494500.0 415200.0 7505700.0 \
+                   --assets visual B04 \
+                   --prefix output \
+                   --input-crs 24879 \
+                   --start-date 2023-12-01 \
+                   --end-date 2023-12-31 \
+                   --max-cloud-pct 5
 ```
 
 ## Available Assets
@@ -78,6 +112,21 @@ print(f"Images processed per asset: {stats['asset_counts']}")
 ### Resolution
 - 10m: B02, B03, B04, B08
 - 20m: B05, B06, B07, B11, B12
+
+## Documentation
+
+For detailed documentation, visit: https://sentinel-timelapse.readthedocs.io/
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Development Setup
+
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/yourusername/sentinel-timelapse.git`
+3. Install in development mode: `pip install -e ".[dev]"`
+4. Run tests: `pytest tests/`
 
 ## Data Sources and Licensing
 

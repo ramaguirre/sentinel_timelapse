@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include requirements.txt
+include environment.yml
+include pytest.ini
+recursive-include tests *.py
+recursive-include notebooks *.ipynb
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store
