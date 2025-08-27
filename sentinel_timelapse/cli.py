@@ -18,27 +18,27 @@ from .main import download_images
 def parse_bounds(bounds_str: List[str]) -> tuple:
     """
     Parse bounding box coordinates from command line arguments.
-    
+
     This function validates and converts the bounding box coordinates provided
     as command line arguments into a tuple of floating-point numbers.
-    
+
     Args:
         bounds_str: List of 4 string values representing xmin, ymin, xmax, ymax
-    
+
     Returns:
         tuple: Tuple of 4 float values (xmin, ymin, xmax, ymax)
-    
+
     Raises:
         ValueError: If the number of arguments is not exactly 4, or if any
                    value cannot be converted to a float
-    
+
     Example:
         >>> parse_bounds(['407500.0', '7494500.0', '415200.0', '7505700.0'])
         (407500.0, 7494500.0, 415200.0, 7505700.0)
     """
     if len(bounds_str) != 4:
         raise ValueError("Bounds must be exactly 4 values: xmin ymin xmax ymax")
-    
+
     try:
         return tuple(float(x) for x in bounds_str)
     except ValueError:
@@ -48,17 +48,17 @@ def parse_bounds(bounds_str: List[str]) -> tuple:
 def parse_assets(assets_str: List[str]) -> List[str]:
     """
     Parse asset names from command line arguments.
-    
+
     This function validates the asset names provided as command line arguments.
     Currently, it simply returns the input list as-is, but could be extended
     to validate against a list of known Sentinel-2 assets.
-    
+
     Args:
         assets_str: List of asset names to download (e.g., ['visual', 'B04'])
-    
+
     Returns:
         List[str]: List of validated asset names
-    
+
     Example:
         >>> parse_assets(['visual', 'B04', 'SCL'])
         ['visual', 'B04', 'SCL']
@@ -117,83 +117,77 @@ Examples:
                      --input-crs 4326 \\
                      --start-date 2023-01-01 \\
                      --end-date 2023-01-31
-        """
+        """,
     )
-    
+
     # Define command line arguments with detailed help text
     parser.add_argument(
         "--bounds",
         nargs=4,
         type=str,
         required=True,
-        help="Bounding box coordinates: xmin ymin xmax ymax"
+        help="Bounding box coordinates: xmin ymin xmax ymax",
     )
-    
+
     parser.add_argument(
         "--assets",
         nargs="+",
         type=str,
         required=True,
-        help="Asset names to download (e.g., visual B04 SCL)"
+        help="Asset names to download (e.g., visual B04 SCL)",
     )
-    
+
     parser.add_argument(
-        "--prefix",
-        type=str,
-        required=True,
-        help="Output directory prefix"
+        "--prefix", type=str, required=True, help="Output directory prefix"
     )
-    
+
     parser.add_argument(
         "--input-crs",
         type=str,
         default="24879",
-        help="Input CRS (EPSG code or string, default: 24879)"
+        help="Input CRS (EPSG code or string, default: 24879)",
     )
-    
+
     parser.add_argument(
         "--start-date",
         type=str,
         default="2014-08-01",
-        help="Start date in YYYY-MM-DD format (default: 2014-08-01)"
+        help="Start date in YYYY-MM-DD format (default: 2014-08-01)",
     )
-    
+
     parser.add_argument(
         "--end-date",
         type=str,
         default=None,
-        help="End date in YYYY-MM-DD format (default: today)"
+        help="End date in YYYY-MM-DD format (default: today)",
     )
-    
+
     parser.add_argument(
         "--max-cloud-pct",
         type=int,
         default=5,
-        help="Maximum cloud coverage percentage (default: 5)"
+        help="Maximum cloud coverage percentage (default: 5)",
     )
-    
+
     parser.add_argument(
-        "--verbose",
-        "-v",
-        action="store_true",
-        help="Enable verbose output"
+        "--verbose", "-v", action="store_true", help="Enable verbose output"
     )
-    
+
     # Parse command line arguments
     args = parser.parse_args()
-    
+
     try:
         # Parse and validate bounding box coordinates
         bounds = parse_bounds(args.bounds)
-        
+
         # Parse and validate asset names
         assets = parse_assets(args.assets)
-        
+
         # Parse and convert coordinate reference system
         input_crs = args.input_crs
         if isinstance(input_crs, str) and input_crs.isdigit():
             input_crs = int(input_crs)
-        
+
         # Display processing parameters if verbose mode is enabled
         if args.verbose:
             print(f"Processing bounds: {bounds}")
@@ -203,7 +197,7 @@ Examples:
             print(f"Max cloud coverage: {args.max_cloud_pct}%")
             print(f"Output prefix: {args.prefix}")
             print()
-        
+
         # Execute the main image download and processing workflow
         stats = download_images(
             bounds=bounds,
@@ -212,15 +206,15 @@ Examples:
             input_crs=input_crs,
             start_date=args.start_date,
             end_date=args.end_date,
-            max_cloud_pct=args.max_cloud_pct
+            max_cloud_pct=args.max_cloud_pct,
         )
-        
+
         # Display processing results and statistics
         print(f"\nProcessing complete!")
         print(f"Total images found: {stats['total_images']}")
         print(f"Images filtered due to clouds: {stats['cloud_filtered']}")
         print(f"Images processed per asset: {stats['asset_counts']}")
-        
+
     except ValueError as e:
         # Handle validation errors (invalid bounds, CRS, etc.)
         print(f"Error: {e}", file=sys.stderr)

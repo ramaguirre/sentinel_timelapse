@@ -41,4 +41,4 @@ from .main import download_images
 # Define the public API for the package
 # Only the main download_images function is exposed as the primary interface
 # Other functions can be imported directly if needed for advanced usage
-__all__ = ['download_images']
+__all__ = ["download_images"]

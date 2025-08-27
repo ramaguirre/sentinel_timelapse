@@ -9,38 +9,39 @@ and raster processing operations.
 
 # sentinel_timelapse/_bootstrap_geo.py
 
+
 def use_rasterio_bundled_data(verbose=True):
     """
     Configure rasterio to use its bundled GDAL and PROJ data.
-    
+
     This function sets up the environment variables needed for rasterio to
     properly access GDAL and PROJ data files that are bundled with the
     rasterio installation. This is particularly important for ensuring
     consistent coordinate system transformations and geospatial operations
     across different environments.
-    
+
     The function performs the following operations:
     1. Clears any existing GDAL_DATA and PROJ_LIB environment variables
     2. Sets these variables to point to rasterio's bundled data directories
     3. Validates the configuration by testing a simple coordinate transformation
     4. Sets up a rasterio environment context for the current session
-    
+
     Args:
         verbose: If True, print the configured paths to stdout.
                 Default is True for debugging purposes.
-    
+
     Returns:
         None
-    
+
     Raises:
         ImportError: If rasterio, pyproj, or required dependencies are not available
         RuntimeError: If the bundled data directories cannot be found or accessed
-    
+
     Note:
         This function should be called early in the application lifecycle,
         ideally before any geospatial operations are performed. It's designed
         to be called once per session.
-    
+
     Example:
         >>> from sentinel_timelapse._bootstrap_geo import use_rasterio_bundled_data
         >>> use_rasterio_bundled_data(verbose=True)
@@ -63,10 +64,10 @@ def use_rasterio_bundled_data(verbose=True):
 
     # Attempt to use pyproj's data directory if available, otherwise fall back to rasterio's
     # This provides more comprehensive PROJ data in some installations
-    #try:
+    # try:
     #    from pyproj import datadir
     #    proj_dir = datadir.get_data_dir() or str(proj_data)
-    #except Exception:
+    # except Exception:
     proj_dir = str(proj_data)
 
     # Set environment variables to point to the bundled data directories
@@ -82,14 +83,16 @@ def use_rasterio_bundled_data(verbose=True):
     # Validate the configuration by testing a simple coordinate transformation
     # This ensures that the PROJ data is accessible and functional
     from pyproj import CRS
+
     _ = CRS.from_epsg(4326)  # Test WGS84 coordinate system creation
 
     # Set up a rasterio environment context for the current session
     # This ensures that rasterio uses the configured environment variables
     from rasterio.env import Env
+
     env = Env(GDAL_DATA=os.environ["GDAL_DATA"], PROJ_LIB=os.environ["PROJ_LIB"])
     env.__enter__()
-    
+
     # Register cleanup function to be called when the program exits
     # This ensures proper cleanup of the rasterio environment
     atexit.register(env.__exit__, None, None, None)

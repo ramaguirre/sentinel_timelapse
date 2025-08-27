@@ -25,33 +25,33 @@ def run_all_tests():
     # Discover and run all tests
     loader = unittest.TestLoader()
     start_dir = os.path.dirname(os.path.abspath(__file__))
-    suite = loader.discover(start_dir, pattern='test_*.py')
-    
+    suite = loader.discover(start_dir, pattern="test_*.py")
+
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)
-    
+
     return result.wasSuccessful()
 
 
 def run_specific_tests(module_name):
     """Run tests for a specific module."""
     test_modules = {
-        'geometry': 'tests.test_geometry',
-        'stac': 'tests.test_stac',
-        'processing': 'tests.test_processing',
-        'main': 'tests.test_main',
-        'integration': 'tests.test_integration',
-        'bootstrap': 'tests.test_bootstrap_geo'
+        "geometry": "tests.test_geometry",
+        "stac": "tests.test_stac",
+        "processing": "tests.test_processing",
+        "main": "tests.test_main",
+        "integration": "tests.test_integration",
+        "bootstrap": "tests.test_bootstrap_geo",
     }
-    
+
     if module_name not in test_modules:
         print(f"Unknown module: {module_name}")
         print(f"Available modules: {', '.join(test_modules.keys())}")
         return False
-    
+
     # Import and run specific test module
     try:
-        module = __import__(test_modules[module_name], fromlist=['*'])
+        module = __import__(test_modules[module_name], fromlist=["*"])
         suite = unittest.TestLoader().loadTestsFromModule(module)
         runner = unittest.TextTestRunner(verbosity=2)
         result = runner.run(suite)
@@ -69,7 +69,7 @@ def main():
     else:
         print("Running all tests...")
         success = run_all_tests()
-    
+
     if success:
         print("\n✅ All tests passed!")
         sys.exit(0)
@@ -78,5 +78,5 @@ def main():
         sys.exit(1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
