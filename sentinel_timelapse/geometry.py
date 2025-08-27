@@ -9,6 +9,22 @@ transforming bounding boxes to WGS84 for use with STAC APIs.
 import geopandas as gpd
 from shapely.geometry import box, mapping
 
+# Flag to track if geospatial environment has been initialized
+_geo_initialized = False
+
+
+def _ensure_geo_initialized():
+    """Ensure the geospatial environment is properly initialized."""
+    global _geo_initialized
+    if not _geo_initialized:
+        try:
+            from ._bootstrap_geo import use_rasterio_bundled_data
+            use_rasterio_bundled_data(verbose=False)
+            _geo_initialized = True
+        except ImportError:
+            # If bootstrap fails, continue without it
+            pass
+
 
 def bounds_to_geom_wgs84(minx, miny, maxx, maxy, input_crs=24879, output_format='shapely'):
     """
@@ -51,6 +67,9 @@ def bounds_to_geom_wgs84(minx, miny, maxx, maxy, input_crs=24879, output_format=
         ...                                input_crs=24879, output_format='json')
         >>> print(f"GeoJSON: {geojson['type']}")
     """
+    # Ensure geospatial environment is initialized
+    _ensure_geo_initialized()
+    
     # Create a Shapely box geometry from the input bounding box coordinates
     geom_utm = box(minx, miny, maxx, maxy)
     

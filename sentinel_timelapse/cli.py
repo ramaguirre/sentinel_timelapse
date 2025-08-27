@@ -146,8 +146,8 @@ Examples:
     
     parser.add_argument(
         "--input-crs",
-        type=Union[int, str],
-        default=24879,
+        type=str,
+        default="24879",
         help="Input CRS (EPSG code or string, default: 24879)"
     )
     

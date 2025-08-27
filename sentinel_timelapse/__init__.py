@@ -30,16 +30,9 @@ Example Usage:
 For more information, visit: https://github.com/yourusername/sentinel-timelapse
 """
 
-# Configure the geospatial environment before importing any geospatial modules
-# This ensures proper operation of rasterio and GDAL libraries
-from ._bootstrap_geo import use_rasterio_bundled_data
-
-# Initialize the geospatial environment with bundled data
-# This should be done before importing any other geospatial modules
-use_rasterio_bundled_data(verbose=False)
-
 # Import the main functionality modules
-# These imports are placed after the bootstrap to ensure proper environment setup
+# Note: The geospatial environment bootstrap is handled automatically
+# when needed by the individual modules to avoid circular import issues
 from .geometry import bounds_to_geom_wgs84
 from .stac import search_stac_items, filter_items_by_geometry
 from .processing import clipped_asset

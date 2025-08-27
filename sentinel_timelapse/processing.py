@@ -15,6 +15,22 @@ import os
 import geopandas as gpd
 from shapely.geometry import box
 
+# Flag to track if geospatial environment has been initialized
+_geo_initialized = False
+
+
+def _ensure_geo_initialized():
+    """Ensure the geospatial environment is properly initialized."""
+    global _geo_initialized
+    if not _geo_initialized:
+        try:
+            from ._bootstrap_geo import use_rasterio_bundled_data
+            use_rasterio_bundled_data(verbose=False)
+            _geo_initialized = True
+        except ImportError:
+            # If bootstrap fails, continue without it
+            pass
+
 
 def clipped_asset(item, xmin, ymin, xmax, ymax, input_crs='EPSG:24879', bounds_crs='EPSG:32719', 
                  asset_name='visual', prefix='clipped', return_data_dic=False, 
@@ -85,6 +101,9 @@ def clipped_asset(item, xmin, ymin, xmax, ymax, input_crs='EPSG:24879', bounds_c
         ...     out_path='output/'
         ... )
     """
+    # Ensure geospatial environment is initialized
+    _ensure_geo_initialized()
+    
     # Transform bounds from input CRS to clipping CRS if they differ
     # This ensures the clipping operation uses the correct coordinate system
     if input_crs != bounds_crs:

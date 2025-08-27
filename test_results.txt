@@ -1,0 +1,933 @@
+test_bootstrap_geo (unittest.loader._FailedTest.test_bootstrap_geo) ... ERROR
+test_use_rasterio_bundled_data_atexit_registration (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_atexit_registration)
+Test that atexit registration is called correctly. ... ERROR
+test_use_rasterio_bundled_data_crs_validation_failure (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_crs_validation_failure)
+Test bootstrap when CRS validation fails. ... ERROR
+test_use_rasterio_bundled_data_env_creation_failure (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_env_creation_failure)
+Test bootstrap when Env creation fails. ... ERROR
+test_use_rasterio_bundled_data_environment_preservation (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_environment_preservation)
+Test that bootstrap preserves other environment variables. ... ERROR
+test_use_rasterio_bundled_data_missing_directories (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_missing_directories)
+Test bootstrap when bundled data directories don't exist. ... ERROR
+test_use_rasterio_bundled_data_multiple_calls (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_multiple_calls)
+Test that multiple calls to bootstrap work correctly. ... ERROR
+test_use_rasterio_bundled_data_no_verbose_output (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_no_verbose_output)
+Test bootstrap without verbose output. ... ERROR
+test_use_rasterio_bundled_data_verbose_output (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_verbose_output)
+Test bootstrap with verbose output. ... ERROR
+test_bootstrap_geo_import_integration (test_bootstrap_geo_advanced.TestBootstrapGeoIntegration.test_bootstrap_geo_import_integration)
+Test that bootstrap_geo works when imported as part of the package. ... skipped "Environment-specific issue: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)"
+test_cli (unittest.loader._FailedTest.test_cli) ... ERROR
+test_edge_cases (unittest.loader._FailedTest.test_edge_cases) ... ERROR
+test_geometry (unittest.loader._FailedTest.test_geometry) ... ERROR
+test_integration (unittest.loader._FailedTest.test_integration) ... ERROR
+test_main (unittest.loader._FailedTest.test_main) ... ERROR
+test_import_from_package_root (test_package_init.TestImportScenarios.test_import_from_package_root)
+Test importing from the package root. ... ERROR
+test_import_from_submodules (test_package_init.TestImportScenarios.test_import_from_submodules)
+Test importing from submodules. ... ERROR
+test_import_performance (test_package_init.TestImportScenarios.test_import_performance)
+Test that imports are reasonably fast. ... ERROR
+test_import_with_relative_imports (test_package_init.TestImportScenarios.test_import_with_relative_imports)
+Test that relative imports work correctly within the package. ... ERROR
+test_bootstrap_geo_initialization (test_package_init.TestPackageInit.test_bootstrap_geo_initialization)
+Test that bootstrap_geo is called during package import. ... ERROR
+test_function_docstrings (test_package_init.TestPackageInit.test_function_docstrings)
+Test that all public functions have proper docstrings. ... FAIL
+test_function_imports (test_package_init.TestPackageInit.test_function_imports)
+Test that all public functions can be imported. ... FAIL
+test_import_without_dependencies (test_package_init.TestPackageInit.test_import_without_dependencies)
+Test import behavior when dependencies are missing. ... ERROR
+test_main_function_import (test_package_init.TestPackageInit.test_main_function_import)
+Test that the main download_images function can be imported. ... ERROR
+test_module_docstrings (test_package_init.TestPackageInit.test_module_docstrings)
+Test that all modules have proper docstrings. ... ERROR
+test_module_imports (test_package_init.TestPackageInit.test_module_imports)
+Test that all modules can be imported individually. ... ERROR
+test_package_all_attribute (test_package_init.TestPackageInit.test_package_all_attribute)
+Test that __all__ is defined and contains expected items. ... ERROR
+test_package_docstring (test_package_init.TestPackageInit.test_package_docstring)
+Test that the package has a proper docstring. ... ERROR
+test_package_import (test_package_init.TestPackageInit.test_package_import)
+Test that the package can be imported successfully. ... ERROR
+test_package_directory_structure (test_package_init.TestPackageStructure.test_package_directory_structure)
+Test that the package has the expected directory structure. ... ok
+test_package_metadata (test_package_init.TestPackageStructure.test_package_metadata)
+Test that the package has proper metadata. ... ERROR
+test_package_version (test_package_init.TestPackageStructure.test_package_version)
+Test that the package has version information. ... ERROR
+test_processing (unittest.loader._FailedTest.test_processing) ... ERROR
+test_stac (unittest.loader._FailedTest.test_stac) ... ERROR
+test_usage (unittest.loader._FailedTest.test_usage) ... ERROR
+
+======================================================================
+ERROR: test_bootstrap_geo (unittest.loader._FailedTest.test_bootstrap_geo)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_bootstrap_geo
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_bootstrap_geo.py", line 5, in <module>
+    from sentinel_timelapse._bootstrap_geo import use_rasterio_bundled_data
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 41, in <module>
+    from pyproj.crs import CRS  # noqa: F401 pylint: disable=unused-import
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\crs\__init__.py", line 7, in <module>
+    from pyproj._crs import (  # noqa: F401  pylint: disable=unused-import
+  File "pyproj\\_crs.pyx", line 15, in init pyproj._crs
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\crs\enums.py", line 50, in <module>
+    class Cartesian2DCSAxis(BaseEnum):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\enum.py", line 513, in __prepare__
+    @classmethod
+    
+KeyboardInterrupt
+
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_atexit_registration (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_atexit_registration)
+Test that atexit registration is called correctly.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_crs_validation_failure (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_crs_validation_failure)
+Test bootstrap when CRS validation fails.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_env_creation_failure (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_env_creation_failure)
+Test bootstrap when Env creation fails.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_environment_preservation (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_environment_preservation)
+Test that bootstrap preserves other environment variables.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_missing_directories (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_missing_directories)
+Test bootstrap when bundled data directories don't exist.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_multiple_calls (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_multiple_calls)
+Test that multiple calls to bootstrap work correctly.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_no_verbose_output (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_no_verbose_output)
+Test bootstrap without verbose output.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_use_rasterio_bundled_data_verbose_output (test_bootstrap_geo_advanced.TestBootstrapGeoAdvanced.test_use_rasterio_bundled_data_verbose_output)
+Test bootstrap with verbose output.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1387, in patched
+    with self.decoration_helper(patched,
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1369, in decoration_helper
+    arg = exit_stack.enter_context(patching)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\contextlib.py", line 526, in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\mock.py", line 1442, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\pkgutil.py", line 513, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_cli (unittest.loader._FailedTest.test_cli)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_cli
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_cli.py", line 16, in <module>
+    from sentinel_timelapse.cli import parse_bounds, parse_assets, main
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_edge_cases (unittest.loader._FailedTest.test_edge_cases)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_edge_cases
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_edge_cases.py", line 15, in <module>
+    from sentinel_timelapse.geometry import bounds_to_geom_wgs84
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_geometry (unittest.loader._FailedTest.test_geometry)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_geometry
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_geometry.py", line 4, in <module>
+    import geopandas as gpd
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\geopandas\__init__.py", line 3, in <module>
+    from geopandas.geoseries import GeoSeries
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\geopandas\geoseries.py", line 18, in <module>
+    from geopandas.base import GeoPandasBase, _delegate_property
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\geopandas\base.py", line 12, in <module>
+    from . import _compat as compat
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\geopandas\_compat.py", line 73, in <module>
+    import pyproj  # noqa: F401
+    ^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_integration (unittest.loader._FailedTest.test_integration)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_integration
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_integration.py", line 8, in <module>
+    from sentinel_timelapse import download_images
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_main (unittest.loader._FailedTest.test_main)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_main
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_main.py", line 7, in <module>
+    from sentinel_timelapse.main import download_images
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_import_from_package_root (test_package_init.TestImportScenarios.test_import_from_package_root)
+Test importing from the package root.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 239, in test_import_from_package_root
+    from sentinel_timelapse import download_images
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_import_from_submodules (test_package_init.TestImportScenarios.test_import_from_submodules)
+Test importing from submodules.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 247, in test_import_from_submodules
+    from sentinel_timelapse.geometry import bounds_to_geom_wgs84
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_import_performance (test_package_init.TestImportScenarios.test_import_performance)
+Test that imports are reasonably fast.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 285, in test_import_performance
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_import_with_relative_imports (test_package_init.TestImportScenarios.test_import_with_relative_imports)
+Test that relative imports work correctly within the package.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 267, in test_import_with_relative_imports
+    import sentinel_timelapse.main
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_bootstrap_geo_initialization (test_package_init.TestPackageInit.test_bootstrap_geo_initialization)
+Test that bootstrap_geo is called during package import.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 160, in test_bootstrap_geo_initialization
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_import_without_dependencies (test_package_init.TestPackageInit.test_import_without_dependencies)
+Test import behavior when dependencies are missing.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 174, in test_import_without_dependencies
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_main_function_import (test_package_init.TestPackageInit.test_main_function_import)
+Test that the main download_images function can be imported.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 43, in test_main_function_import
+    from sentinel_timelapse import download_images
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_module_docstrings (test_package_init.TestPackageInit.test_module_docstrings)
+Test that all modules have proper docstrings.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 123, in test_module_docstrings
+    module = importlib.import_module(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_module_imports (test_package_init.TestPackageInit.test_module_imports)
+Test that all modules can be imported individually.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 62, in test_module_imports
+    module = importlib.import_module(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_package_all_attribute (test_package_init.TestPackageInit.test_package_all_attribute)
+Test that __all__ is defined and contains expected items.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 93, in test_package_all_attribute
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_package_docstring (test_package_init.TestPackageInit.test_package_docstring)
+Test that the package has a proper docstring.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 103, in test_package_docstring
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_package_import (test_package_init.TestPackageInit.test_package_import)
+Test that the package can be imported successfully.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 35, in test_package_import
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_package_metadata (test_package_init.TestPackageStructure.test_package_metadata)
+Test that the package has proper metadata.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 222, in test_package_metadata
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_package_version (test_package_init.TestPackageStructure.test_package_version)
+Test that the package has version information.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 211, in test_package_version
+    import sentinel_timelapse
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+ERROR: test_processing (unittest.loader._FailedTest.test_processing)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_processing
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_processing.py", line 10, in <module>
+    from sentinel_timelapse.processing import clipped_asset
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_stac (unittest.loader._FailedTest.test_stac)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_stac
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_stac.py", line 5, in <module>
+    from sentinel_timelapse.stac import search_stac_items, filter_items_by_geometry
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+ERROR: test_usage (unittest.loader._FailedTest.test_usage)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_usage
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\unittest\loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_usage.py", line 8, in <module>
+    from sentinel_timelapse import download_images
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+
+======================================================================
+FAIL: test_function_docstrings (test_package_init.TestPackageInit.test_function_docstrings)
+Test that all public functions have proper docstrings.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 146, in test_function_docstrings
+    module = importlib.import_module(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 152, in test_function_docstrings
+    self.fail(f"Failed to import {function_name} from {module_name}: {e}")
+AssertionError: Failed to import bounds_to_geom_wgs84 from sentinel_timelapse.geometry: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+======================================================================
+FAIL: test_function_imports (test_package_init.TestPackageInit.test_function_imports)
+Test that all public functions can be imported.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 83, in test_function_imports
+    module = importlib.import_module(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amsraguirre\Anaconda3\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\__init__.py", line 39, in <module>
+    use_rasterio_bundled_data(verbose=False)
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\sentinel_timelapse\_bootstrap_geo.py", line 84, in use_rasterio_bundled_data
+    from pyproj import CRS
+  File "C:\Users\amsraguirre\Anaconda3\Lib\site-packages\pyproj\__init__.py", line 93, in <module>
+    pyproj.network.set_ca_bundle_path()
+    ^^^^^^^^^^^^^^
+AttributeError: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\test_package_init.py", line 88, in test_function_imports
+    self.fail(f"Failed to import {function_name} from {module_name}: {e}")
+AssertionError: Failed to import bounds_to_geom_wgs84 from sentinel_timelapse.geometry: partially initialized module 'pyproj' has no attribute 'network' (most likely due to a circular import)
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.081s
+
+FAILED (failures=2, errors=31, skipped=1)
+Running all tests...
+Traceback (most recent call last):
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\run_tests.py", line 82, in <module>
+    main()
+  File "C:\Users\amsraguirre\OneDrive - Grupo Minero Antofagasta Minerals\Documentos\02_PERSONAL\02_PROYECTOS_2025\00_CODE_REPOS\sentinel_cursor\sentinel_timelapse\tests\run_tests.py", line 77, in main
+    print("\n\u274c Some tests failed!")
+  File "C:\Users\amsraguirre\Anaconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>

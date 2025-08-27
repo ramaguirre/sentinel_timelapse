@@ -16,6 +16,22 @@ from .geometry import bounds_to_geom_wgs84
 from .stac import search_stac_items, filter_items_by_geometry
 from .processing import clipped_asset
 
+# Flag to track if geospatial environment has been initialized
+_geo_initialized = False
+
+
+def _ensure_geo_initialized():
+    """Ensure the geospatial environment is properly initialized."""
+    global _geo_initialized
+    if not _geo_initialized:
+        try:
+            from ._bootstrap_geo import use_rasterio_bundled_data
+            use_rasterio_bundled_data(verbose=False)
+            _geo_initialized = True
+        except ImportError:
+            # If bootstrap fails, continue without it
+            pass
+
 
 def download_images(
     bounds: tuple,
@@ -76,6 +92,9 @@ def download_images(
         ... )
         >>> print(f"Processed {stats['asset_counts']['visual']} visual images")
     """
+    # Ensure geospatial environment is initialized
+    _ensure_geo_initialized()
+    
     # Initialize statistics dictionary to track processing results
     stats = {
         'total_images': 0,

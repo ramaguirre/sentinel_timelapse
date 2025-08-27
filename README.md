@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/sentinel-timelapse.svg)](https://badge.fury.io/py/sentinel-timelapse)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/yourusername/sentinel-timelapse/workflows/Tests/badge.svg)](https://github.com/yourusername/sentinel-timelapse/actions)
+[![Tests](https://github.com/ramaguirre/sentinel_timelapse/workflows/Tests/badge.svg)](https://github.com/ramaguirre/sentinel_timelapse/actions)
 
 Automatic time series download of Sentinel-2 imagery using Microsoft's Planetary Computer.
 
@@ -96,7 +96,6 @@ sentinel-timelapse --bounds 407500.0 7494500.0 415200.0 7505700.0 \
   - 9: CLOUD_HIGH_PROBABILITY
   - 10: THIN_CIRRUS
   - 11: SNOW
-- `TCI`: True Color Image (RGB visualization) - 10m
 - `AOT`: Aerosol Optical Thickness - 10m
 - `WVP`: Water Vapor - 10m
 
@@ -108,10 +107,7 @@ sentinel-timelapse --bounds 407500.0 7494500.0 415200.0 7505700.0 \
 - `B09`: Water vapor (945nm) - 60m
 - `B11`: SWIR 1 (1614nm) - 20m
 - `B12`: SWIR 2 (2202nm) - 20m
-
-### Resolution
-- 10m: B02, B03, B04, B08
-- 20m: B05, B06, B07, B11, B12
+- `B8A`: Vegetation Red Edge 4 (865nm) - 20m
 
 ## Documentation
 
@@ -124,7 +120,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ### Development Setup
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/sentinel-timelapse.git`
+2. Clone your fork: `git clone https://github.com/ramaguirre/sentinel_timelapse.git`
 3. Install in development mode: `pip install -e ".[dev]"`
 4. Run tests: `pytest tests/`
 
