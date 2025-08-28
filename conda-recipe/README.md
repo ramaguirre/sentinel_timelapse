@@ -11,10 +11,13 @@ To build the conda package locally:
 conda install conda-build
 
 # Build the package
-conda build conda-recipe/
+conda build conda-recipe/ --output-folder conda-build/
+
+# Index the build directory
+conda index conda-build/
 
 # Install the built package
-conda install --use-local sentinel-timelapse
+conda install -c file://./conda-build sentinel-timelapse
 ```
 
 ## Publishing to conda-forge
