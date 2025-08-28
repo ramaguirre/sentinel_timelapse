@@ -64,7 +64,7 @@ def use_rasterio_bundled_data(verbose: bool = True) -> None:
     gdal_data = rio_dir / "gdal_data"  # GDAL coordinate system and datum files
     proj_data = rio_dir / "proj_data"  # PROJ coordinate transformation files
 
-    # Attempt to use pyproj's data directory if available, otherwise fall back to rasterio's
+    # Attempt to use pyproj's data directory, otherwise fall back to rasterio's
     # This provides more comprehensive PROJ data in some installations
     # try:
     #    from pyproj import datadir

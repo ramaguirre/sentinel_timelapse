@@ -68,7 +68,8 @@ def bounds_to_geom_wgs84(
 
     Example:
         >>> # Convert UTM coordinates to WGS84
-        >>> geom = bounds_to_geom_wgs84(407500, 7494500, 415200, 7505700, input_crs=24879)
+        >>> geom = bounds_to_geom_wgs84(407500, 7494500, 415200, 7505700,\
+            input_crs=24879)
         >>> print(f"WGS84 bounds: {geom.bounds}")
 
         >>> # Get GeoJSON format for STAC API

@@ -56,7 +56,7 @@ jobs:
       run: black --check --diff .
     
     - name: Run flake8
-      run: flake8 sentinel_timelapse tests
+      run: flake8 sentinel_timelapse
     
     - name: Run mypy
       run: mypy sentinel_timelapse

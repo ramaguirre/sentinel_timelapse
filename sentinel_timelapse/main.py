@@ -58,7 +58,8 @@ def download_images(
         prefix: Output directory prefix where downloaded images will be saved.
                Each asset will be saved in a subdirectory named after the asset.
         input_crs: Coordinate reference system of the input bounds. Can be an
-                  EPSG code (int) or CRS string. Default is EPSG:24879 (UTM zone 19S, North Chile).
+                  EPSG code (int) or CRS string. Default is EPSG:24879 (UTM zone 19S,\
+                      North Chile).
         start_date: Start date for image search in YYYY-MM-DD format.
                    Default is "2014-08-01" (Sentinel-2 launch date).
         end_date: End date for image search in YYYY-MM-DD format.

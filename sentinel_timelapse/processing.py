@@ -14,7 +14,7 @@ from rasterio.coords import BoundingBox
 import os
 import geopandas as gpd
 from shapely.geometry import box
-from typing import Union, Dict, Any, Optional
+from typing import Dict, Any, Optional
 
 # Flag to track if geospatial environment has been initialized
 _geo_initialized = False
@@ -164,7 +164,8 @@ def clipped_asset(
                 and bounds.top > src_bounds.bottom
             ):
                 raise ValueError(
-                    f"Provided bounds {bounds} do not intersect with image extent {src_bounds}."
+                    f"Provided bounds {bounds} do not intersect with\
+                          image extent {src_bounds}."
                 )
 
             # Calculate the raster window that corresponds to our geographic bounds
@@ -220,7 +221,8 @@ def clipped_asset(
 
                     # Add metadata tags to the output file
                     dst.update_tags(
-                        description="Clipped Sentinel-2 visual asset from Planetary Computer",
+                        description=f"Clipped Sentinel-2 visual {asset_name}\
+                              from Planetary Computer",
                         creation_date=item.properties["datetime"],
                         source="Sentinel-2",
                         href=item.assets[asset_name].href,
