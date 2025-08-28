@@ -45,11 +45,15 @@ conda install -c file://./conda-build sentinel-timelapse
 - geopandas >=0.12.0
 - shapely >=1.8.0
 - rasterio >=1.3.0
-- pystac-client >=0.7.0
-- planetary-computer >=0.5.0
 - pyproj >=3.4.0
 - numpy >=1.21.0
 - requests >=2.28.0
+
+### Pip dependencies (installed during testing):
+- pystac-client >=0.7.0
+- planetary-computer >=0.5.0
+
+**Note**: The pip dependencies are installed during the test phase since they are not available in conda-forge.
 
 ### Build dependencies:
 - python >=3.8

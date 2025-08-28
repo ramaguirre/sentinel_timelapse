@@ -11,9 +11,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: |
-    {{ PYTHON }} -m pip install . -vv
-    {{ PYTHON }} -m pip install pystac-client>=0.7.0 planetary-computer>=0.5.0
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - sentinel-timelapse = sentinel_timelapse.cli:main
 
@@ -43,6 +41,7 @@ test:
     - sentinel_timelapse.main
     - sentinel_timelapse.cli
   commands:
+    - pip install pystac-client>=0.7.0 planetary-computer>=0.5.0
     - pip check
     - sentinel-timelapse --help
 

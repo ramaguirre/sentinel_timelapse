@@ -119,9 +119,9 @@ python -c "import sentinel_timelapse; print('Success!')"
 
 Your package uses a hybrid approach:
 - **Conda dependencies**: geopandas, shapely, rasterio, pyproj, numpy, requests
-- **Pip dependencies**: pystac-client, planetary-computer (via post-link script)
+- **Pip dependencies**: pystac-client, planetary-computer (installed during testing)
 
-This ensures maximum compatibility while handling packages not available in conda.
+This ensures maximum compatibility while handling packages not available in conda-forge. The pip dependencies are installed during the test phase to verify functionality.
 
 ## Troubleshooting
 
