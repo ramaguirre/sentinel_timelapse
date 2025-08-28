@@ -21,7 +21,7 @@ class TestSTAC(unittest.TestCase):
         self.bbox = mapping(box(0, 0, 1, 1))
         self.datetime_range = "2023-01-01/2023-01-31"
 
-    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
+    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
     def test_search_stac_items_success(self, mock_client_open):
         """Test successful STAC item search."""
         # Mock the STAC client and search results
@@ -40,10 +40,10 @@ class TestSTAC(unittest.TestCase):
         mock_catalog.search.assert_called_once_with(
             collections=["sentinel-2-l2a"],
             intersects=self.bbox,
-            datetime=self.datetime_range
+            datetime=self.datetime_range,
         )
 
-    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
+    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
     def test_search_stac_items_custom_collection(self, mock_client_open):
         """Test STAC search with custom collection."""
         # Mock the STAC client and search results
@@ -60,10 +60,10 @@ class TestSTAC(unittest.TestCase):
         mock_catalog.search.assert_called_once_with(
             collections=["sentinel-2-l1c"],
             intersects=self.bbox,
-            datetime=self.datetime_range
+            datetime=self.datetime_range,
         )
 
-    @patch('sentinel_timelapse.stac.pystac_client.Client.open')
+    @patch("sentinel_timelapse.stac.pystac_client.Client.open")
     def test_search_stac_items_connection_error(self, mock_client_open):
         """Test STAC search with connection error."""
         # Mock connection error
@@ -80,7 +80,9 @@ class TestSTAC(unittest.TestCase):
         item1 = Mock()
         item1.geometry = mapping(box(-1, -1, 2, 2))  # Large polygon containing our bbox
         item2 = Mock()
-        item2.geometry = mapping(box(-0.5, -0.5, 1.5, 1.5))  # Polygon that contains our bbox
+        item2.geometry = mapping(
+            box(-0.5, -0.5, 1.5, 1.5)
+        )  # Polygon that contains our bbox
         item3 = Mock()
         item3.geometry = mapping(box(2, 2, 3, 3))  # Does not contain our bbox
 
@@ -130,5 +132,5 @@ class TestSTAC(unittest.TestCase):
             filter_items_by_geometry([item], self.bbox)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
