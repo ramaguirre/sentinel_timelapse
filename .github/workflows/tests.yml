@@ -59,4 +59,4 @@ jobs:
       run: flake8 sentinel_timelapse
     
     - name: Run mypy
-      run: mypy sentinel_timelapse --exclude tests/
+      run: mypy sentinel_timelapse --exclude tests/ --ignore-missing-imports

@@ -92,3 +92,14 @@ warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
 exclude = ["tests/", "tests/*"]
+ignore_missing_imports = true
+[[tool.mypy.overrides]]
+module = [
+    "shapely.*",
+    "geopandas.*",
+    "rasterio.*",
+    "pystac_client.*",
+    "planetary_computer.*",
+    "pyproj.*"
+]
+ignore_missing_imports = true
