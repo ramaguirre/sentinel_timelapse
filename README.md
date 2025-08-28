@@ -22,6 +22,11 @@ Automatic time series download of Sentinel-2 imagery using Microsoft's Planetary
 pip install sentinel-timelapse
 ```
 
+### From conda-forge (Recommended for conda users)
+```bash
+conda install -c conda-forge sentinel-timelapse
+```
+
 ### From GitHub
 ```bash
 pip install git+https://github.com/ramaguirre/sentinel_timelapse.git 

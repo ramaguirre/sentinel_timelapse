@@ -1,0 +1,42 @@
+name: Conda Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  conda-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, "3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install conda-build
+      run: |
+        conda install -c conda-forge conda-build anaconda-client
+        
+    - name: Build conda package
+      run: |
+        conda build conda-recipe/ --output-folder conda-build/
+        
+    - name: Test conda package
+      run: |
+        conda install --use-local sentinel-timelapse
+        python -c "import sentinel_timelapse; print('Import successful')"
+        sentinel-timelapse --help
+        
+    - name: Upload conda package artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: conda-package-${{ matrix.python-version }}
+        path: conda-build/
